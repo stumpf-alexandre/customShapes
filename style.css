@@ -4,6 +4,7 @@
     display: flex;
     list-style: none;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 /*primeira mandala*/
@@ -201,12 +202,13 @@
 
 /*quinta mandala*/
 .gallery5{
+  
     display: grid;
     gap: 10px;
     grid-template-columns: auto 0 auto;
     place-items: center;
-    border-radius: 50%;
-    padding: 50px;
+    border-radius: 100%;
+
     overflow: hidden;
 }
 
@@ -214,9 +216,9 @@
     width: 200px; /*controlar o tamanho*/
     aspect-ratio: 1;
     object-fit: cover;
-    cursor: pointer;
-    filter: grayscale(80%);
     transition: .35s;
+    filter: grayscale();
+    cursor: pointer;
     transform: translate(var(--_x, 0), var(--_y, 0)) scale(var(--_t, 1));
 }
 
@@ -238,14 +240,14 @@
     clip-path: polygon(50% 0, 100% 0, 100% 100%, 0 100%);
 }
 
-.gallery4 > img:nth-child(4) {
+.gallery5 > img:nth-child(4) {
     clip-path: polygon(0 0, 100% 0, 50% 100%, 0 100%);
 }
 
-.gallery4 > img:nth-child(5) {
+.gallery5 > img:nth-child(5) {
     clip-path: polygon(50% 0, 100% 100%, 0% 100%);
 }
 
-.gallery4 > img:nth-child(6) {
+.gallery5 > img:nth-child(6) {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%);
 }
