@@ -1,13 +1,23 @@
-.gallery{
-    --s: 150px; /*controla o tamanho*/
-    --g: 10px; /*controla a lacuna*/
-    display: grid;
-    margin: calc(var(--s) + var(--g));
+#container{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    flex-direction: row;
 }
 
-.gallery > img{
+/*primeira mandala*/
+.gallery1{
+    --a: 150px; /*controla o tamanho*/
+    --b: 10px; /*controla a lacuna*/
+    display: grid;
+    padding: 50px;
+    margin: calc(var(--a) + var(--b));
+}
+
+.gallery1 > img{
     grid-area: 1/1;
-    width: var(--s);
+    width: var(--a);
     aspect-ratio: 1.15;
     object-fit: cover;
     clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0 50%); /*transforma a imagem em um hexágono*/
@@ -18,31 +28,224 @@
 }
 
 /*calculos geometricos e o css para posicionar as imagens*/
-.gallery > img:hover{
+.gallery1 > img:hover{
     filter: grayscale(0);
     z-index: 1;
     --_t: 1.2;
 }
 
-.gallery > img:nth-child(1) {
-    --_y: calc(-100% - var(--g))
+.gallery1 > img:nth-child(1) {
+    --_y: calc(-100% - var(--b))
 }
-.gallery > img:nth-child(7) {
-    --_y: calc(100% + var(--g))
+
+.gallery1 > img:nth-child(7) {
+    --_y: calc(100% + var(--b))
 }
-.gallery > img:nth-child(3), 
-.gallery > img:nth-child(5) {
-    --_x: calc(-75% - .87 * var(--g))
+
+.gallery1 > img:nth-child(3), 
+.gallery1 > img:nth-child(5) {
+    --_x: calc(-75% - .87 * var(--b))
 }
-.gallery > img:nth-child(4), 
-.gallery > img:nth-child(6) {
-    --_x: calc(75% + .87 * var(--g))
+
+.gallery1 > img:nth-child(4), 
+.gallery1 > img:nth-child(6) {
+    --_x: calc(75% + .87 * var(--b))
 }
-.gallery > img:nth-child(3), 
-.gallery > img:nth-child(4) {
-    --_y: calc(-50% - .5 * var(--g))
+
+.gallery1 > img:nth-child(3), 
+.gallery1 > img:nth-child(4) {
+    --_y: calc(-50% - .5 * var(--b))
 }
-.gallery > img:nth-child(5), 
-.gallery > img:nth-child(6) {
-    --_y: calc(50% + .5 * var(--g))
+
+.gallery1 > img:nth-child(5), 
+.gallery1 > img:nth-child(6) {
+    --_y: calc(50% + .5 * var(--b))
+}
+
+
+/*segunda mandala*/
+.gallery2{
+    --c: 130px; /*controla o tamanho*/
+    --d: 10px; /*controla a lacuna*/
+    display: grid;
+    padding: 50px;
+    margin: calc(var(--c) + var(--d));
+}
+
+.gallery2 > img{
+    grid-area: 1/1;
+    width: var(--c);
+    aspect-ratio: 0.866;
+    object-fit: cover;
+    clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0); /*transforma a imagem em um hexágono*/
+    transform: translate(var(--_x, 0), var(--_y, 0)) scale(var(--_t, 1));
+    cursor: pointer;
+    filter: grayscale(80%);
+    transition: .2s linear;
+}
+
+/*calculos geometricos e o css para posicionar as imagens*/
+.gallery2 > img:hover{
+    filter: grayscale(0);
+    z-index: 1;
+    --_t: 1.2;
+}
+
+.gallery2 > img:nth-child(1) {
+    --_x: calc(-100% - var(--d))
+}
+
+.gallery2 > img:nth-child(7) {
+    --_x: calc(100% + var(--d))
+}
+
+.gallery2 > img:nth-child(3), 
+.gallery2 > img:nth-child(5) {
+    --_y: calc(-75% - .87 * var(--d))
+}
+
+.gallery2 > img:nth-child(4), 
+.gallery2 > img:nth-child(6) {
+    --_y: calc(75% + .87 * var(--d))
+}
+
+.gallery2 > img:nth-child(3), 
+.gallery2 > img:nth-child(4) {
+    --_x: calc(-50% - .5 * var(--d))
+}
+.gallery2 > img:nth-child(5), 
+.gallery2 > img:nth-child(6) {
+    --_x: calc(50% + .5 * var(--d))
+}
+
+
+/*terceira mandala*/
+.gallery3{
+    --e: 150px; /*controla o tamanho*/
+    display: grid;
+    grid: auto-flow var(--e) / repeat(2, var(--e));
+    gap: 10px;
+    place-items: center;
+    padding: 50px;
+    margin: calc(var(--e) / 2);
+    transform: rotate(45deg);
+}
+
+.gallery3 > img{
+    width: 141%; /*100% * sqrt(2) = 141%*/
+    aspect-ratio: 1;
+    object-fit: cover;
+    filter: grayscale(80%);
+    transform: scale(var(--_t, 1)) rotate(-45deg);
+    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+    cursor: pointer;
+    transition: .2s linear;
+}
+
+/*calculos geometricos e o css para posicionar as imagens*/
+.gallery3 > img:hover{
+    filter: grayscale();
+    --_t: 1.15;
+}
+
+
+/*quarta mandala*/
+.gallery4{
+    display: grid;
+    gap: 10px;
+    grid-template-columns: auto 0 auto;
+    place-items: center;
+    padding: 50px;
+}
+
+.gallery4 > img{
+    width: 230px; /*controlar o tamanho*/
+    aspect-ratio: 1;
+    object-fit: cover;
+    cursor: pointer;
+    filter: grayscale(80%);
+    transition: .35s linear;
+    transform: translate(var(--_x, 0), var(--_y, 0)) scale(var(--_t, 1));
+}
+
+/*calculos geometricos e o css para posicionar as imagens*/
+.gallery4 > img:hover{
+    filter: grayscale(0);
+    --_t: 1.15;
+}
+
+.gallery4 > img:nth-child(1) {
+    clip-path: polygon(0 0, 50% 0, 100% 100%, 0 100%);
+}
+
+.gallery4 > img:nth-child(2) {
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+.gallery4 > img:nth-child(3) {
+    clip-path: polygon(50% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.gallery4 > img:nth-child(4) {
+    clip-path: polygon(0 0, 100% 0, 50% 100%, 0 100%);
+}
+
+.gallery4 > img:nth-child(5) {
+    clip-path: polygon(50% 0, 100% 100%, 0% 100%);
+}
+
+.gallery4 > img:nth-child(6) {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%);
+}
+
+
+/*quinta mandala*/
+.gallery5{
+    display: grid;
+    gap: 10px;
+    grid-template-columns: auto 0 auto;
+    place-items: center;
+    border-radius: 50%;
+    padding: 50px;
+    overflow: hidden;
+}
+
+.gallery5 > img{
+    width: 200px; /*controlar o tamanho*/
+    aspect-ratio: 1;
+    object-fit: cover;
+    cursor: pointer;
+    filter: grayscale(80%);
+    transition: .35s;
+    transform: translate(var(--_x, 0), var(--_y, 0)) scale(var(--_t, 1));
+}
+
+/*calculos geometricos e o css para posicionar as imagens*/
+.gallery5 > img:hover{
+    filter: grayscale(0%);
+    --_t: 1.15;
+}
+
+.gallery5 > img:nth-child(1) {
+    clip-path: polygon(0 0, 50% 0, 100% 100%, 0 100%);
+}
+
+.gallery5 > img:nth-child(2) {
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+.gallery5 > img:nth-child(3) {
+    clip-path: polygon(50% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.gallery4 > img:nth-child(4) {
+    clip-path: polygon(0 0, 100% 0, 50% 100%, 0 100%);
+}
+
+.gallery4 > img:nth-child(5) {
+    clip-path: polygon(50% 0, 100% 100%, 0% 100%);
+}
+
+.gallery4 > img:nth-child(6) {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%);
 }
