@@ -476,3 +476,67 @@
 .gallery9:hover {
     --p: 0px;
 }
+
+
+/*colunas interagindo*/
+.galleryA {
+    --q: 1; /*numero de linhas*/
+    --r: 5; /*numero de colunas*/
+    --s: 0px; /*controle de linha de divisão*/
+    --t: .8;  /*controle do fator de escala*/
+    display: grid;
+    gap: var(--s);
+    width: 100vw;
+    height: 100vh;
+    grid-template-columns: repeat(var(--r),auto);
+    margin: 50px 0;
+  }
+  
+  .galleryA > img {
+    width: 0;
+    height: 0;
+    min-height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    filter: grayscale(80%);
+    transition: .35s linear;
+  }
+  
+  .galleryA img:hover{
+    filter: grayscale(0);
+    width:  calc(100vh*var(--t)/var(--q));
+    height: calc(100vw*var(--t)/var(--r));
+  }
+
+
+  /*imagens interativas*/
+  .galleryB {
+    --s: 150px; /*controle do tamanho*/
+    --g: 10px; /*controle de linha de divisão*/
+    --f: 2.0; /*controle do fator de escala*/
+    display: grid;
+    gap: var(--g);
+    width: calc(3 * var(--s) + 2 * var(--g));
+    aspect-ratio: 1;
+    grid-template-columns: repeat(3, auto);
+    background: #60c4ff;
+    margin: 50px;
+  }
+  
+  .galleryB > img {
+    width: 0;
+    height: 0;
+    min-height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    filter: grayscale(80%);
+    transition: .55s linear;
+  }
+  
+  .galleryB img:hover{
+    filter: grayscale(0);
+    width:  calc(var(--s)*var(--f));
+    height: calc(var(--s)*var(--f));
+  }
